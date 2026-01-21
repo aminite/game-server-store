@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 
 import usersRoute from "./routes/usersRoute.js";
+import mtaRoutes from "./routes/mtaRoutes.js";
 
 import errorMiddleware from "./middleware/errorMiddleware.js";
 
@@ -11,7 +12,11 @@ const app = express()
 dotenv.config("../env");
 connectDB();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use("/users", usersRoute);
+app.use("/mta", mtaRoutes);
 
 app.use(errorMiddleware);
 

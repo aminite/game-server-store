@@ -7,6 +7,8 @@ const Schema = mongoose.Schema({
     }, password: {
         type: String,
         required: true
+    }, account: {
+        type: String
     }
 }, {
     timestamps: true
