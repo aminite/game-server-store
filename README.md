@@ -1,0 +1,1 @@
+This is a game server website store, that can easly be intergrated into your game server (roblox / mta / minecraft), i havent done payments system or currency, you can register/login, view your subscriptions, thier status (Expired / Active), and buy and expire date
