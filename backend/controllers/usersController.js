@@ -7,6 +7,7 @@ import Subscription from "../models/subscriptionsModel.js";
 const saltRounds = 10;
 
 const registerUser = asyncHandler(async (req, res) => {
+    console.log(req.body)
     if (!req.body || !req.body.email || !req.body.password) {
         res.status(400);
         throw new Error("Please fill all fields");

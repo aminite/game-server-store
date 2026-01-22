@@ -4,19 +4,29 @@ import connectDB from "./config/db.js";
 
 import usersRoute from "./routes/usersRoute.js";
 import mtaRoutes from "./routes/mtaRoutes.js";
+import subscriptionsRoutes from "./routes/subscriptionsRoutes.js";
 
 import errorMiddleware from "./middleware/errorMiddleware.js";
+import cors from "cors";
 
 const app = express()
 
 dotenv.config("../env");
 connectDB();
 
+app.use(
+  cors({
+    origin: "http://localhost:5173", // ONLY allow your Vue app
+    credentials: true,
+  }),
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/users", usersRoute);
 app.use("/mta", mtaRoutes);
+app.use("/subscriptions", subscriptionsRoutes);
 
 app.use(errorMiddleware);
 
