@@ -69,28 +69,36 @@
     onMounted(loadSubs)
 </script>
 
+
 <template>
     <template v-if="loading == true">
-        <h1 class="text-6xl text-white text-center mt-20">loading...</h1>
+        <h1 class="text-4xl md:text-6xl text-white text-center mt-20 px-4">loading...</h1>
     </template>
-    <div v-else class="flex justify-center items-center p-20 gap-10">
-        <div class="w-60 bg-amber-400 p-5 rounded-2xl" v-for="(sub, name) in subscriptions">
-            <p class="font-medium">
-                <strong>Rank:</strong> {{ name }}
-            </p>
-            <p class="font-medium">
-                <strong>Price:</strong> {{ sub.price }}$
-            </p>
-            <p class="font-medium">
-                <strong>Duration:</strong> {{ sub.duration }} Days
-            </p>    
-            <p class="font-medium"><strong>Features:</strong> </p>
-            <ul class="pl-5">
-                <li v-for="feature in sub.features" class="list-disc font-medium"> {{ feature }}</li>
-            </ul>
-            <button v-on:click="buySub(name)" class="w-20 h-8 bg-green-700 rounded mt-5 cursor-pointer hover:bg-green-600 transition text-white font-medium">
-                Purchase
-            </button>
+    <template v-else>
+
+    <h1 class="mt-6 md:mt-10 text-white font-medium text-2xl md:text-4xl text-center px-4">Available Subscriptions:</h1>
+
+    <div class="p-4 md:p-10 lg:p-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-10 max-w-7xl mx-auto justify-items-center">
+            <div class="bg-amber-300 p-5 rounded-2xl shadow-lg hover:shadow-xl transition-shadow w-full max-w-xs" v-for="(sub, name) in subscriptions" :key="name">
+                <p class="font-medium mb-2">
+                    <strong>Rank:</strong> {{ name }}
+                </p>
+                <p class="font-medium mb-2">
+                    <strong>Price:</strong> {{ sub.price }}$
+                </p>
+                <p class="font-medium mb-2">
+                    <strong>Duration:</strong> {{ sub.duration }} Days
+                </p>    
+                <p class="font-medium mb-1"><strong>Features:</strong></p>
+                <ul class="pl-5 mb-4">
+                    <li v-for="(feature, index) in sub.features" :key="index" class="list-disc font-medium text-sm md:text-base">{{ feature }}</li>
+                </ul>
+                <button v-on:click="buySub(name)" class="w-full md:w-auto px-6 py-2 bg-green-700 rounded mt-2 cursor-pointer hover:bg-green-600 transition text-white font-medium">
+                    Purchase
+                </button>
+            </div>
         </div>
     </div>
+    </template>
 </template>

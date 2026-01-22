@@ -34,7 +34,25 @@ import { ref } from 'vue';
 </script>
 
 <template>
-    <form @submit.prevent="login" class="flex flex-col w-100 h-80 bg-amber-300 justify-self-center mt-25 rounded-2xl items-center p-5">
+    <form @submit.prevent="login" class="flex flex-col w-70 h-80 bg-amber-300 justify-self-center mt-25 rounded-2xl items-center p-5 md:hidden">
+        <label class="font-medium text-2xl">
+            Email:
+            <br> 
+            <input v-model="email" class="mt-2 bg-gray-50 border-2 w-3xs" type="email">
+        </label>
+
+        <br>
+
+        <label class="font-medium text-2xl">
+            Password:
+            <br> 
+            <input v-model="password" class="mt-2 bg-gray-50 border-2 w-3xs" type="password">
+        </label>
+
+        <input value="Login" type="submit" class="cursor-pointer mt-10 w-40 h-15 rounded-2xl bg-green-700 hover:bg-green-600 transition"/>
+    </form>
+
+    <form @submit.prevent="login" class="hidden flex-col w-100 h-80 bg-amber-300 justify-self-center mt-25 rounded-2xl items-center p-5 md:flex">
         <label class="font-medium text-2xl">
             Email:
             <br> 

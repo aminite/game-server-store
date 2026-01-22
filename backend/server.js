@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 
 import usersRoute from "./routes/usersRoute.js";
-import mtaRoutes from "./routes/mtaRoutes.js";
+import gameRoutes from "./routes/gameRoutes.js";
 import subscriptionsRoutes from "./routes/subscriptionsRoutes.js";
 
 import errorMiddleware from "./middleware/errorMiddleware.js";
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/users", usersRoute);
-app.use("/mta", mtaRoutes);
+app.use("/mta", gameRoutes);
 app.use("/subscriptions", subscriptionsRoutes);
 
 app.use(errorMiddleware);

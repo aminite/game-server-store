@@ -1,10 +1,10 @@
 import express from "express";
 const router = express.Router();
-import { linkUser } from "../controllers/mtaController.js";
-import mtaMiddleware from "../middleware/mtaMiddleware.js";
+import { linkUser } from "../controllers/gameController.js";
+import gameMiddleware from "../middleware/gameMiddleware.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 
-router.use(mtaMiddleware);
+router.use(gameMiddleware);
 
 router.post("/link", authMiddleware, linkUser);
 

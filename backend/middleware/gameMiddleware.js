@@ -7,6 +7,6 @@ export default asyncHandler(async (req, res, next) => {
         next();
     } else {
         res.status(401)
-        throw new Error("Not authorizeddd");
+        throw new Error("Not authorized");
     }
 })

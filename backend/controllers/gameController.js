@@ -1,5 +1,4 @@
 import asyncHandler from "express-async-handler";
-import User from "../models/usersModel.js";
 
 const linkUser = asyncHandler(async (req, res) => {
     if (!req.body || !req.body.account) {
