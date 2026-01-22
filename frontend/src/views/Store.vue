@@ -57,7 +57,7 @@
             const data = await response.json()
 
             if (data) {
-                alert("You hought sun")
+                alert("You have succussfuly bought a subscription")
             } else {
                 alert("Unable to Buy Subscription")
             }
